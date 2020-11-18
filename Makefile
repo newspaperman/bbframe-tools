@@ -1,11 +1,11 @@
 CC = g++
 
 .PHONY: clean all
-all : ddbbf 
+all : pts2bbf 
 
-ddbbf: ddbbf.cpp
+pts2bbf: pts2bbf.cpp
 	$(CC) -o $@ $<
 
 
 clean:
-	rm -f ddbbf
+	rm -f pts2bbf
