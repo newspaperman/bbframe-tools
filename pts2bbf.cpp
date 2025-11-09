@@ -3,15 +3,15 @@
 #include<string.h>
 #include<stdlib.h>
 
-using namespace std;
+// using namespace std;   // fixes https://github.com/newspaperman/bbframe-tools/issues/4
 
-istream* inbuf;
-ostream* outbuf;
+std::istream* inbuf;
+std::ostream* outbuf;
 int size;
 
 int main(int argc, char** argv) {
-	inbuf = &cin;
-	outbuf = &cout;
+	inbuf = &std::cin;
+	outbuf = &std::cout;
 	size=200;
 	char* packets= new char[size*188];
 	while(1) {
@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 			pid<<=8;
 			pid|=(unsigned char)(packets[i+2]);
 			
-			if(pid!=0x010e) {
+			if(pid!=0x010e && pid!=0x0118) {
 				continue;
 
 			}
